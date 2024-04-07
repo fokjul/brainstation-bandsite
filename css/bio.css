@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("woff2");
+  src: url("../../assets/font/AvenirNextLTPro-Demi.otf") format("woff2");
+  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("woff2");
+}
+body {
+  background-color: red;
+  font-family: "Avenir";
+}
+
+.heading1 {
+  font-size: 3.75rem;
+  line-height: 4.25rem;
+  font-weight: 700;
+}

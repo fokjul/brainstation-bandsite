@@ -1,0 +1,46 @@
+@use "functions" as f;
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("woff2");
+    src: url("../../assets/font/AvenirNextLTPro-Demi.otf") format("woff2");
+    src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("woff2");
+}
+
+// Font Family
+    $font: "Avenir", sans-serif;
+
+// Font weight
+    $font-bold: 700;
+    $font-demi: 600;
+    $font-reg: 400;
+
+// Font Size
+    $font-2xl: f.to-rem(60);
+    $font-xl: f.to-rem(36);
+    $font-l: f.to-rem(24);
+    $font-m: f.to-rem(14);
+    $font-s: f.to-rem(13); 
+    $font-xs: f.to-rem(12);
+    $font-xxs: f.to-rem(10);
+
+// Line Height 
+    $lineH-xl: f.to-rem(68);
+    $lineH-l: f.to-rem(44);
+    $lineH-m: f.to-rem(32);
+    $lineH-s: f.to-rem(22);
+    $lineH-xs: f.to-rem(20);
+    $lineH-xxs: f.to-rem(18);
+
+
+// Typography 
+    @mixin type-kit ($size, $height, $weight){
+        font-size: $size;
+        line-height: $height;
+        font-weight: $weight;
+    }
+
+// Page Header
+@mixin page-header {
+    @include type-kit ($font-2xl, $lineH-xl, $font-bold)
+}
