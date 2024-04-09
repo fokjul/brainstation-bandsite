@@ -9,3 +9,7 @@ body {
 .heading1 {
     @include p.page-header;
 }
+
+.labels {
+    @include p.labels-buttons;
+}

@@ -10,7 +10,13 @@ body {
 }
 
 .heading1 {
-  font-size: 3.75rem;
-  line-height: 4.25rem;
+  font-size: clamp(1.5rem, 1rem + 2.5vw, 3.75rem);
+  line-height: clamp(2rem, 1rem + 2.5vw, 4.25rem);
+  font-weight: 700;
+}
+
+.labels {
+  font-size: clamp(0.625rem, 2vw, 0.75rem);
+  line-height: clamp(1.25rem, 0.5rem + 2vw, 1.25rem);
   font-weight: 700;
 }

@@ -23,7 +23,7 @@
     $font-s: f.to-rem(13); 
     $font-xs: f.to-rem(12);
     $font-xxs: f.to-rem(10);
-
+    
 // Line Height 
     $lineH-xl: f.to-rem(68);
     $lineH-l: f.to-rem(44);
@@ -32,15 +32,48 @@
     $lineH-xs: f.to-rem(20);
     $lineH-xxs: f.to-rem(18);
 
+//Calculates preferred font size and line height for clamp function
+    $font-prefer: calc(1rem + 2.5vw);
+    $height-prefer: calc(1rem + 2.5vw);
+
 
 // Typography 
-    @mixin type-kit ($size, $height, $weight){
-        font-size: $size;
-        line-height: $height;
+    @mixin type-kit ($fontSize-min, $font-preferred, $fontSize-max, $height-min, $height-preffered, $height-max, $weight){
+
+        // Clamp function calculates fluid typography
+        font-size: clamp($fontSize-min, $font-preferred, $fontSize-max);
+
+        line-height: clamp($height-min, $height-preffered, $height-max);
+
         font-weight: $weight;
     }
 
-// Page Header
-@mixin page-header {
-    @include type-kit ($font-2xl, $lineH-xl, $font-bold)
-}
+// Page Header Mobile to Desktop
+    @mixin page-header {
+        @include type-kit ($font-l, calc(1rem + 2.5vw), $font-2xl, $lineH-m, calc(1rem + 2.5vw), $lineH-xl, $font-bold)
+    }
+
+// Section Header Mobile to Desktop
+    @mixin section-header {
+        @include type-kit ($font-l, calc(1rem + 2.5vw), $font-xl, $lineH-m, calc(1rem + 2.5vw), $lineH-l, $font-bold)
+    }
+
+// Subheader Mobile to Desktop
+    @mixin subheader {
+        @include type-kit ($font-m, 2vw, $font-l, $lineH-s, calc(0.5rem + 2vw), $lineH-m, $font-demi)
+    }
+
+// Body Copy
+    @mixin body-copy {
+        @include type-kit ($font-s, 2vw, $font-m, $lineH-xxs, calc(0.5rem + 2vw), $lineH-s, $font-reg)
+    }
+
+// Footer Copy
+    @mixin footer-copy {
+        @include type-kit ($font-s, 2vw, $font-m, $lineH-xxs, calc(0.5rem + 2vw), $lineH-xs, $font-reg)
+    }
+
+// Labels & Buttons
+    @mixin labels-buttons {
+        @include type-kit ($font-xxs, 2vw, $font-xs, $lineH-xs, calc(0.5rem + 2vw), $lineH-xs, $font-bold)
+    }
