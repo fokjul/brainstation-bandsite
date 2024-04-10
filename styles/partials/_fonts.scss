@@ -11,26 +11,26 @@
     $font: "Avenir", sans-serif;
 
 // Font weight
-    $font-bold: 700;
+    $font-bold: bold;
     $font-demi: 600;
-    $font-reg: 400;
+    $font-reg: normal;
 
 // Font Size
-    $font-2xl: f.to-rem(60);
-    $font-xl: f.to-rem(36);
-    $font-l: f.to-rem(24);
-    $font-m: f.to-rem(14);
-    $font-s: f.to-rem(13); 
-    $font-xs: f.to-rem(12);
-    $font-xxs: f.to-rem(10);
+    $font-2xl: f.px-to-rem(60);
+    $font-xl: f.px-to-rem(36);
+    $font-l: f.px-to-rem(24);
+    $font-m: f.px-to-rem(14);
+    $font-s: f.px-to-rem(13); 
+    $font-xs: f.px-to-rem(12);
+    $font-xxs: f.px-to-rem(10);
     
 // Line Height 
-    $lineH-xl: f.to-rem(68);
-    $lineH-l: f.to-rem(44);
-    $lineH-m: f.to-rem(32);
-    $lineH-s: f.to-rem(22);
-    $lineH-xs: f.to-rem(20);
-    $lineH-xxs: f.to-rem(18);
+    $lineH-xl: f.px-to-rem(68);
+    $lineH-l: f.px-to-rem(44);
+    $lineH-m: f.px-to-rem(32);
+    $lineH-s: f.px-to-rem(22);
+    $lineH-xs: f.px-to-rem(20);
+    $lineH-xxs: f.px-to-rem(18);
 
 //Calculates preferred font size and line height for clamp function
     $font-prefer: calc(1rem + 2.5vw);
@@ -50,12 +50,12 @@
 
 // Page Header Mobile to Desktop
     @mixin page-header {
-        @include type-kit ($font-l, calc(1rem + 2.5vw), $font-2xl, $lineH-m, calc(1rem + 2.5vw), $lineH-xl, $font-bold)
+        @include type-kit ($font-l, 4.5vw, $font-2xl, $lineH-m, calc(1rem + 2.5vw), $lineH-xl, $font-bold)
     }
 
 // Section Header Mobile to Desktop
     @mixin section-header {
-        @include type-kit ($font-l, calc(1rem + 2.5vw), $font-xl, $lineH-m, calc(1rem + 2.5vw), $lineH-l, $font-bold)
+        @include type-kit ($font-l, calc(2.5vw), $font-xl, $lineH-m, calc(1rem + 2.5vw), $lineH-l, $font-bold)
     }
 
 // Subheader Mobile to Desktop

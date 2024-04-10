@@ -1,0 +1,14 @@
+@use "colors";
+@use "fonts";
+@use "functions" as f;
+
+/* Margines & Paddings */
+$size-4xl: f.px-to-rem(80); 
+$size-3xl: f.px-to-rem(64); 
+$size-2xl: f.px-to-rem(48);
+$size-xl: f.px-to-rem(40); 
+$size-l: f.px-to-rem(32); 
+$size-m: f.px-to-rem(24);
+$size-s: f.px-to-rem(16); 
+$size-xs: f.px-to-rem(8); 
+$size-xxs: f.px-to-rem(4); 

@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use 'functions' as f;
+
+// https://sass-lang.com/documentation/values/maps/
+    $breakpoints: (
+        "desktop": f.px-to-rem(1280), 
+        "mobile": f.px-to-rem(320)
+    );
+
+@mixin breakpoint ($size) {
+    @media (min-width: map.get($breakpoints, $size)) {
+        @content;
+    }
+}

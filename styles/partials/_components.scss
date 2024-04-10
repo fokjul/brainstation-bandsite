@@ -1,0 +1,107 @@
+@use 'colors';
+@use 'fonts';
+@use 'functions' as f;
+@use 'breakpoints' as b;
+@use 'layouts';
+
+.primary-button {
+    background-color: colors.$text-color--dark;
+    color: colors.$text-color--light;
+    height: f.px-to-rem(40);
+    border-radius: f.px-to-rem(4);
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    @include fonts.labels-buttons;
+
+    &:hover {
+        background-color: colors.$secondary-color--dark;
+    }
+
+    @include b.breakpoint(desktop) {
+        max-width: f.px-to-rem(150);
+        padding-left: f.px-to-rem(32);
+        padding-right: f.px-to-rem(32);
+    }
+}
+
+.header {
+    background-color: colors.$text-color--dark;
+    display: flex;
+    flex-direction: column;
+    
+    .logo {
+        width: 100%;
+        background-color: colors.$text-color--dark;
+        display: flex;
+        justify-content: center;
+        padding-top: layouts.$size-xs;
+    
+        &__copy {
+            width: f.px-to-rem(120);
+            // height: f.px-to-rem(20);
+            color: colors.$text-color--light;
+            @include fonts.page-header;
+            font-weight: fonts.$font-reg;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
+
+    .nav {
+        &__list {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+    
+        &__item {
+            width: 50%;
+            text-align: center;
+            color: colors.$text-color--light;
+            @include fonts.body-copy;
+            
+            padding-bottom: layouts.$size-s;
+            padding-top: layouts.$size-xxs;
+        }
+
+        &__item--active {
+            @extend .nav__item;
+            border-bottom: 3px solid colors.$text-color--light;
+            font-weight: fonts.$font-bold;
+        }
+    }
+}
+
+.heading1 {
+    @include fonts.page-header;
+}
+
+.heading2 {
+    @include fonts.page-header;
+}
+
+.subheader {
+    @include fonts.subheader;
+}
+
+.body-copy {
+    @include fonts.body-copy;
+}
+
+.footer {
+    background-color: colors.$text-color--dark;
+    padding: layouts.$size-m layouts.$size-s;
+    display: flex;
+    flex-direction: column;
+    gap: layouts.$size-s;
+
+    &__heading {
+        color: colors.$text-color--light;
+    }
+}
+
+

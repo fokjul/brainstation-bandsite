@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 // functin to convert pixels to rems
-    @function to-rem($pixel) {
+    @function px-to-rem($pixel) {
         @if math.is-unitless($pixel) {
             @return math.div($pixel, 16) * 1rem;
         } 
