@@ -24,6 +24,19 @@
         }
     }
 
+    &__heading-container {
+        @include p.breakpoint(tablet) {
+            width: 100%;
+            
+        }
+    
+        @include p.breakpoint(desktop) {
+            width: p.px-to-rem(1280);
+            padding-inline: p.$size-l + p.$size-xxs;
+            margin: auto;
+        }
+    }
+
     &__heading {
         color: p.$text-color--light;
     }
@@ -31,13 +44,16 @@
 
 .about {
     @include p.section-layout;
+    padding-block: p.$size-m;
 
     &__container {
-        @include p.section-layout;
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-s;
         padding: 0;
 
         @include p.breakpoint(tablet) {
-            padding: 0 p.$size-xl;
+            padding: 0 p.$size-2xl;
             gap: p.$size-m;
         }
     }
@@ -45,8 +61,18 @@
     &__img {
         width: 100%;
         object-fit: cover;
-        max-height: p.px-to-rem(150)
+        max-height: p.px-to-rem(150);
+
+        @include p.breakpoint(tablet) {
+            max-height: p.px-to-rem(300);
+        }
+
+        @include p.breakpoint(desktop) {
+            max-height: p.px-to-rem(450);
+        }
     }
+
+
 
     &__caption {
         @extend .subheader;
@@ -72,7 +98,10 @@
 
 .gallery {
     background-color: p.$secondary-color--light;
-    @include p.section-layout;
+    
+    &__container {
+        @include p.section-layout;
+    }
 
     &__img-list {
         display: grid;
@@ -89,6 +118,11 @@
     &__img {
         object-fit: cover;
         width: 100%;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: revert;
+        }
     }
 }
 
