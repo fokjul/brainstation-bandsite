@@ -1,19 +1,31 @@
 @use "functions" as f;
+@use "breakpoints" as b;
 
 @font-face {
     font-family: "Avenir";
     src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Avenir";
     src: url("../../assets/font/AvenirNextLTPro-Demi.otf") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Avenir";
     src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("woff2");
+    font-weight: 400;
 }
 
 // Font Family
     $font: "Avenir", sans-serif;
 
 // Font weight
-    $font-bold: bold;
+    $font-bold: 700;
     $font-demi: 600;
-    $font-reg: normal;
+    $font-reg: 400;
 
 // Font Size
     $font-2xl: f.px-to-rem(60);
@@ -32,48 +44,68 @@
     $lineH-xs: f.px-to-rem(20);
     $lineH-xxs: f.px-to-rem(18);
 
-//Calculates preferred font size and line height for clamp function
-    $font-prefer: calc(1rem + 2.5vw);
-    $height-prefer: calc(1rem + 2.5vw);
+.heading1 {
+    font-size: $font-l;
+    line-height: $lineH-m;
+    font-weight: $font-bold;
 
-
-// Typography 
-    @mixin type-kit ($fontSize-min, $font-preferred, $fontSize-max, $height-min, $height-preffered, $height-max, $weight){
-
-        // Clamp function calculates fluid typography
-        font-size: clamp($fontSize-min, $font-preferred, $fontSize-max);
-
-        line-height: clamp($height-min, $height-preffered, $height-max);
-
-        font-weight: $weight;
+    @include b.breakpoint(tablet) {
+        font-size: $font-2xl;
+        line-height: $lineH-l;
     }
+}
 
-// Page Header Mobile to Desktop
-    @mixin page-header {
-        @include type-kit ($font-l, 4.5vw, $font-2xl, $lineH-m, calc(1rem + 2.5vw), $lineH-xl, $font-bold)
-    }
+.heading2 {
+    font-size: $font-l;
+    line-height: $lineH-m;
+    font-weight: $font-bold;
 
-// Section Header Mobile to Desktop
-    @mixin section-header {
-        @include type-kit ($font-l, calc(2.5vw), $font-xl, $lineH-m, calc(1rem + 2.5vw), $lineH-l, $font-bold)
+    @include b.breakpoint(tablet) {
+        font-size: $font-xl;
+        line-height: $lineH-xl;
     }
+}
 
-// Subheader Mobile to Desktop
-    @mixin subheader {
-        @include type-kit ($font-m, 2vw, $font-l, $lineH-s, calc(0.5rem + 2vw), $lineH-m, $font-demi)
-    }
+.subheader {
+    font-size: $font-m;
+    line-height: $lineH-s;
+    font-weight: $font-demi;
 
-// Body Copy
-    @mixin body-copy {
-        @include type-kit ($font-s, 2vw, $font-m, $lineH-xxs, calc(0.5rem + 2vw), $lineH-s, $font-reg)
+    @include b.breakpoint(tablet) {
+        font-size: $font-l;
+        line-height: $lineH-m;
     }
+}
 
-// Footer Copy
-    @mixin footer-copy {
-        @include type-kit ($font-s, 2vw, $font-m, $lineH-xxs, calc(0.5rem + 2vw), $lineH-xs, $font-reg)
-    }
+.body-copy {
+    font-size: $font-s;
+    line-height: $lineH-xxs;
+    font-weight: $font-reg;
 
-// Labels & Buttons
-    @mixin labels-buttons {
-        @include type-kit ($font-xxs, 2vw, $font-xs, $lineH-xs, calc(0.5rem + 2vw), $lineH-xs, $font-bold)
+    @include b.breakpoint(tablet) {
+        font-size: $font-m;
+        line-height: $lineH-s;
     }
+}
+
+.footer-copy {
+    font-size: $font-s;
+    line-height: $lineH-xxs;
+    font-weight: $font-reg;
+
+    @include b.breakpoint(tablet) {
+        font-size: $font-m;
+        line-height: $lineH-xs;
+    }
+}
+
+.labels-buttons {
+    font-size: $font-xxs;
+    line-height: $lineH-xs;
+    font-weight: $font-bold;
+
+    @include b.breakpoint(tablet) {
+        font-size: $font-xs;
+        line-height: $lineH-xs;
+    }
+}

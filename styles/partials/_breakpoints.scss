@@ -4,6 +4,7 @@
 // https://sass-lang.com/documentation/values/maps/
     $breakpoints: (
         "desktop": f.px-to-rem(1280), 
+        "tablet": f.px-to-rem(768),
         "mobile": f.px-to-rem(320)
     );
 

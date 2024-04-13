@@ -12,39 +12,53 @@
     width: 100%;
     border: none;
     text-transform: uppercase;
-    @include fonts.labels-buttons;
+    @extend .labels-buttons;
 
     &:hover {
         background-color: colors.$secondary-color--dark;
     }
 
-    @include b.breakpoint(desktop) {
+    @include b.breakpoint(tablet) {
         max-width: f.px-to-rem(150);
-        padding-left: f.px-to-rem(32);
-        padding-right: f.px-to-rem(32);
+        padding-left: layouts.$size-l;
+        padding-right: layouts.$size-l;
     }
+}
+
+.logo {
+    width: f.px-to-rem(120);
+    height: f.px-to-rem(20)
 }
 
 .header {
     background-color: colors.$text-color--dark;
     display: flex;
-    flex-direction: column;
     
-    .logo {
+    &__container {
         width: 100%;
-        background-color: colors.$text-color--dark;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @include b.breakpoint(tablet) {
+            flex-direction: row;
+            padding: 0 layouts.$size-l;
+            gap: layouts.$size-xl;
+        }
+
+        @include b.breakpoint(desktop) {
+            margin: auto;
+        }
+    }
+
+    &__logo {
         display: flex;
         justify-content: center;
-        padding-top: layouts.$size-xs;
-    
-        &__copy {
-            width: f.px-to-rem(120);
-            // height: f.px-to-rem(20);
-            color: colors.$text-color--light;
-            @include fonts.page-header;
-            font-weight: fonts.$font-reg;
-            text-transform: uppercase;
-            text-align: center;
+        padding-top: layouts.$size-s;
+
+        @include b.breakpoint(tablet) {
+            padding-top: 0;
+            align-items: center;
         }
     }
 
@@ -56,16 +70,22 @@
             align-items: center;
             margin: 0;
             padding: 0;
+
+            @include b.breakpoint(tablet) {
+                gap: layouts.$size-xl;
+            }
         }
-    
+
         &__item {
             width: 50%;
             text-align: center;
             color: colors.$text-color--light;
-            @include fonts.body-copy;
-            
-            padding-bottom: layouts.$size-s;
-            padding-top: layouts.$size-xxs;
+            @extend .body-copy;
+            padding: layouts.$size-s 0;
+
+            @include b.breakpoint(tablet) {
+                padding: layouts.$size-m 0;
+            }
         }
 
         &__item--active {
@@ -76,32 +96,84 @@
     }
 }
 
-.heading1 {
-    @include fonts.page-header;
-}
-
-.heading2 {
-    @include fonts.page-header;
-}
-
-.subheader {
-    @include fonts.subheader;
-}
-
-.body-copy {
-    @include fonts.body-copy;
-}
-
 .footer {
     background-color: colors.$text-color--dark;
-    padding: layouts.$size-m layouts.$size-s;
+    @include layouts.section-layout;
+    color: colors.$text-color--light;
     display: flex;
     flex-direction: column;
-    gap: layouts.$size-s;
+    gap: layouts.$size-xl;
 
-    &__heading {
-        color: colors.$text-color--light;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: layouts.$size-m;
     }
+
+    &__icon-wrapper {
+        display: flex;
+        gap: layouts.$size-m;
+    }
+
+    &__logo--top {
+        display: none;
+
+        @include b.breakpoint(tablet) {
+            display: inline;
+        }
+    }
+
+    &__logo--bottom {
+        @include b.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    &__container-h2-social-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__container-h2-social {
+        display: flex;
+        gap: layouts.$size-m;
+
+        @include b.breakpoint(tablet) {
+            flex-direction: column;  
+        }
+
+    }
+
+    .email {
+        color: inherit;
+    }
+
+    &__section-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: layouts.$size-m;
+
+        @include b.breakpoint(tablet) {
+            grid-template-columns: auto auto auto;  
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: layouts.$size-s;
+
+    }
+
+    &__copyright {
+        font-weight: fonts.$font-reg;
+    }
+
+    &__subheader {
+        @include b.breakpoint(tablet) {
+            font-size: fonts.$font-m;
+        }
+    }
+
 }
-
-
