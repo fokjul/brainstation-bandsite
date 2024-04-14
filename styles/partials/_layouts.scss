@@ -31,7 +31,7 @@ $size-xxs: f.px-to-rem(4);
     }
 
     @include b.breakpoint(desktop) {
-        width: f.px-to-rem(1280);
+        max-width: f.px-to-rem(1280);
         margin: auto;
     }
 }

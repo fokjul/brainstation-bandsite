@@ -165,7 +165,7 @@ a, a:visited, a:active {
 }
 @media (min-width: 80rem) {
   .header__container {
-    width: 80rem;
+    max-width: 80rem;
     margin: auto;
   }
 }
@@ -249,7 +249,7 @@ a, a:visited, a:active {
 }
 @media (min-width: 80rem) {
   .footer__content {
-    width: 80rem;
+    max-width: 80rem;
     margin: auto;
   }
 }
@@ -371,7 +371,7 @@ a, a:visited, a:active {
 }
 @media (min-width: 80rem) {
   .about {
-    width: 80rem;
+    max-width: 80rem;
     margin: auto;
   }
 }
@@ -383,7 +383,7 @@ a, a:visited, a:active {
 }
 @media (min-width: 48rem) {
   .about__container {
-    padding: 0 3rem;
+    padding: 0 5rem;
     gap: 1.5rem;
   }
 }
@@ -440,7 +440,7 @@ a, a:visited, a:active {
 }
 @media (min-width: 80rem) {
   .gallery__container {
-    width: 80rem;
+    max-width: 80rem;
     margin: auto;
   }
 }

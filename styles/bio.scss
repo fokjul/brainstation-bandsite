@@ -53,7 +53,7 @@
         padding: 0;
 
         @include p.breakpoint(tablet) {
-            padding: 0 p.$size-2xl;
+            padding: 0 p.$size-4xl;
             gap: p.$size-m;
         }
     }
