@@ -20,18 +20,15 @@ $size-xxs: f.px-to-rem(4);
 @mixin section-layout {
     display: flex;
     flex-direction: column;
-    gap: $size-s;
-    padding-inline: $size-m;
-    padding-block: $size-m;
-    margin: 0;
+    margin-inline: $size-m;
+    
 
     @include b.breakpoint(tablet) {
-        width: 100%;
-        padding-inline: $size-l + $size-xxs;
+        margin-inline: $size-l + $size-xxs;
     }
 
     @include b.breakpoint(desktop) {
         width: f.px-to-rem(1280);
-        margin: auto;
+        margin-inline: auto;
     }
 }
