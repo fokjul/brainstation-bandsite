@@ -1,0 +1,81 @@
+@use "functions" as f;
+@use "breakpoints" as b;
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/font/AvenirNextLTPro-Bold.otf") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/font/AvenirNextLTPro-Demi.otf") format("woff2");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/font/AvenirNextLTPro-Regular.otf") format("woff2");
+    font-weight: 400;
+}
+
+// Font Family
+    $font: "Avenir", sans-serif;
+
+// Font weight
+    $font-bold: 700;
+    $font-demi: 600;
+    $font-reg: 400;
+
+// Font Size
+    $font-2xl: f.px-to-rem(60);
+    $font-xl: f.px-to-rem(36);
+    $font-l: f.px-to-rem(24);
+    $font-m: f.px-to-rem(14);
+    $font-s: f.px-to-rem(13); 
+    $font-xs: f.px-to-rem(12);
+    $font-xxs: f.px-to-rem(10);
+    
+// Line Height 
+    $lineH-xl: f.px-to-rem(68);
+    $lineH-l: f.px-to-rem(44);
+    $lineH-m: f.px-to-rem(32);
+    $lineH-s: f.px-to-rem(22);
+    $lineH-xs: f.px-to-rem(20);
+    $lineH-xxs: f.px-to-rem(18);
+
+.heading1 {
+    font-size: clamp($font-l, 5vw, $font-2xl);
+    line-height: clamp($lineH-m, 6vw, $lineH-xl);
+    font-weight: $font-demi;
+}
+
+.section-header {
+    font-size: clamp($font-l, 5vw, $font-xl);
+    line-height: clamp($lineH-m, 6vw, $lineH-l);
+    font-weight: $font-demi;
+}
+
+.subheader {
+    font-size: clamp($font-m, 5vw, $font-l);
+    line-height: clamp($lineH-s, 6vw, $lineH-m);
+    font-weight: $font-demi;
+}
+
+.body-copy {
+    font-size: clamp($font-s, 5vw, $font-m);
+    line-height: clamp($lineH-xxs, 6vw, $lineH-s);
+    font-weight: $font-reg;
+}
+
+.footer-copy {
+    font-size: clamp($font-s, 5vw, $font-m);
+    line-height: clamp($lineH-xxs, 6vw, $lineH-xs);
+    font-weight: $font-reg;
+}
+
+.labels-buttons {
+    font-size: clamp($font-xxs, 5vw, $font-xs);
+    line-height: clamp($lineH-xs, 6vw, $lineH-xs);
+    font-weight: $font-bold;
+}
