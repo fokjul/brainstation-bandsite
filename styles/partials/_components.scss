@@ -116,8 +116,8 @@
     &__content {
         display: flex;
         flex-direction: column;
-        padding-block: layouts.$size-m;
-        gap: layouts.$size-l;
+        @extend .section-padding;
+        @extend .component-gap;
     }
 
     &__icon-wrapper {
@@ -184,9 +184,7 @@
     }
 
     &__subheader {
-        @include b.breakpoint(tablet) {
-            font-size: fonts.$font-m;
-        }
+        font-weight: fonts.$font-demi;
     }
 
 }

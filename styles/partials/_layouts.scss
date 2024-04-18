@@ -32,3 +32,11 @@ $size-xxs: f.px-to-rem(4);
         margin-inline: auto;
     }
 }
+
+.section-padding {
+    padding-block: clamp($size-m, 6.5vw, $size-2xl)
+}
+
+.component-gap {
+    gap: clamp($size-s, 4vw, $size-l + $size-xxs)
+}
