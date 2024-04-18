@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'functions' as f;
 
-// https://sass-lang.com/documentation/values/maps/
+// SASS map to store breakpoint values. Ref --> https://sass-lang.com/documentation/values/maps/
     $breakpoints: (
         "desktop": f.px-to-rem(1280), 
         "tablet": f.px-to-rem(768),

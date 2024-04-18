@@ -20,18 +20,31 @@ $size-xxs: f.px-to-rem(4);
 @mixin section-layout {
     display: flex;
     flex-direction: column;
-    gap: $size-s;
-    padding-inline: $size-m;
-    padding-block: $size-m;
-    margin: 0;
+    margin-inline: $size-m;
+    
 
     @include b.breakpoint(tablet) {
-        width: 100%;
-        padding-inline: $size-l + $size-xxs;
+        margin-inline: $size-l + $size-xxs;
     }
 
     @include b.breakpoint(desktop) {
-        max-width: f.px-to-rem(1280);
-        margin: auto;
+        width: f.px-to-rem(1280);
+        margin-inline: auto;
     }
+}
+
+.section-padding {
+    padding-block: clamp($size-m, 6.5vw, $size-2xl)
+}
+
+.component-gap {
+    gap: clamp($size-s, 4vw, $size-l + $size-xxs)
+}
+
+.section-padding {
+    padding-block: clamp($size-m, 6.5vw, $size-2xl)
+}
+
+.component-gap {
+    gap: clamp($size-s, 4vw, $size-l + $size-xxs)
 }

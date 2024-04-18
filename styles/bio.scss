@@ -14,27 +14,16 @@
         width: 100%;
         height: 100%;
         background-color: p.$text-color--dark-50op;
-        padding-left: p.$size-s;
         display: flex;
         align-items: center;
 
         @include p.breakpoint(tablet) {
             flex-direction: row;
-            padding: 0 p.$size-l;
         }
     }
 
-    &__heading-container {
-        @include p.breakpoint(tablet) {
-            width: 100%;
-            
-        }
-    
-        @include p.breakpoint(desktop) {
-            width: p.px-to-rem(1280);
-            padding-inline: p.$size-l + p.$size-xxs;
-            margin: auto;
-        }
+    &__container {
+        @include p.section-layout;
     }
 
     &__heading {
@@ -44,7 +33,8 @@
 
 .about {
     @include p.section-layout;
-    padding-block: p.$size-m;
+    @extend .component-gap;
+    @extend .section-padding;
 
     &__container {
         display: flex;
@@ -53,7 +43,7 @@
         padding: 0;
 
         @include p.breakpoint(tablet) {
-            padding: 0 p.$size-4xl;
+            padding-inline: p.$size-2xl;
             gap: p.$size-m;
         }
     }
@@ -72,17 +62,13 @@
         }
     }
 
-
-
     &__caption {
         @extend .subheader;
         padding-bottom: p.$size-xs;
     }
 
     &__caption:nth-last-of-type(1) {
-        @include p.breakpoint(tablet) {
-            font-size: p.$font-m;
-        }
+        font-size: p.$font-m;
     }
 
     &__copy-container {
@@ -101,6 +87,8 @@
     
     &__container {
         @include p.section-layout;
+        @extend .component-gap;
+        @extend .section-padding;
     }
 
     &__img-list {
@@ -122,6 +110,7 @@
 
         &:hover {
             filter: revert;
+            cursor: pointer;
         }
     }
 }
