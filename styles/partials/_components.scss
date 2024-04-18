@@ -1,0 +1,190 @@
+@use 'colors';
+@use 'fonts';
+@use 'functions' as f;
+@use 'breakpoints' as b;
+@use 'layouts';
+
+.primary-button {
+    background-color: colors.$text-color--dark;
+    color: colors.$text-color--light;
+    height: f.px-to-rem(40);
+    border-radius: f.px-to-rem(4);
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    @extend .labels-buttons;
+
+    &:hover {
+        background-color: colors.$secondary-color--dark;
+    }
+
+    @include b.breakpoint(tablet) {
+        max-width: f.px-to-rem(150);
+        padding-left: layouts.$size-l;
+        padding-right: layouts.$size-l;
+    }
+}
+
+.logo {
+    width: f.px-to-rem(120);
+    height: f.px-to-rem(20)
+}
+
+.header {
+    background-color: colors.$text-color--dark;
+    display: flex;
+
+    &__wrapper {
+        @include layouts.section-layout;
+        width: 100%;
+        margin-inline: 0;
+    }
+    
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        gap: 0;
+
+        @include b.breakpoint(tablet) {
+            flex-direction: row;
+            gap: layouts.$size-xl;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        padding-top: layouts.$size-s;
+
+        @include b.breakpoint(tablet) {
+            padding-top: 0;
+            align-items: center;
+        }
+    }
+
+    .nav {
+        &__list {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+
+            @include b.breakpoint(tablet) {
+                gap: layouts.$size-xl;
+            }
+        }
+
+        &__item {
+            width: 50%;
+            text-align: center;
+            color: colors.$text-color--light;
+            @extend .body-copy;
+            padding: layouts.$size-s 0;
+
+            @include b.breakpoint(tablet) {
+                padding: layouts.$size-m 0;
+            }
+
+            &:hover {
+                @extend .nav__item--active;
+                cursor: pointer;
+                
+            }
+        }
+
+        &__item--active {
+            @extend .nav__item;
+            border-bottom: 3px solid colors.$text-color--light;
+            font-weight: fonts.$font-bold;
+        }
+    }
+}
+
+.footer {
+    background-color: colors.$text-color--dark;
+    color: colors.$text-color--light;
+    width: 100%;
+
+    &__wrapper {
+        @include layouts.section-layout;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        @extend .section-padding;
+        @extend .component-gap;
+    }
+
+    &__icon-wrapper {
+        display: flex;
+        gap: layouts.$size-m;
+    }
+
+    &__logo--top {
+        display: none;
+
+        @include b.breakpoint(tablet) {
+            display: inline;
+        }
+    }
+
+    &__logo--bottom {
+        @include b.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    &__container-h2-social-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__container-h2-social {
+        display: flex;
+        flex-direction: column;  
+        gap: layouts.$size-m;
+
+        @include b.breakpoint(tablet) {
+            flex-direction: row;  
+            align-items: center;
+        }
+
+    }
+
+    .email {
+        color: inherit;
+    }
+
+    &__section-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: layouts.$size-m;
+
+        @include b.breakpoint(tablet) {
+            grid-template-columns: auto auto auto;  
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: layouts.$size-s;
+
+    }
+
+    &__copyright {
+        font-weight: fonts.$font-reg;
+    }
+
+    &__subheader {
+        font-weight: fonts.$font-demi;
+    }
+
+}

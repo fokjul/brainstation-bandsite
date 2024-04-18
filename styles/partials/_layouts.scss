@@ -1,0 +1,50 @@
+@use "colors";
+@use "fonts";
+@use "functions" as f;
+@use "breakpoints" as b;
+
+/* Margines & Paddings */
+$size-4xl: f.px-to-rem(80); 
+$size-3xl: f.px-to-rem(64); 
+$size-2xl: f.px-to-rem(48);
+$size-xl: f.px-to-rem(40); 
+$size-l: f.px-to-rem(32); 
+$size-m: f.px-to-rem(24);
+$size-s: f.px-to-rem(16); 
+$size-xs: f.px-to-rem(8); 
+$size-xxs: f.px-to-rem(4); 
+
+
+//Section Layout
+
+@mixin section-layout {
+    display: flex;
+    flex-direction: column;
+    margin-inline: $size-m;
+    
+
+    @include b.breakpoint(tablet) {
+        margin-inline: $size-l + $size-xxs;
+    }
+
+    @include b.breakpoint(desktop) {
+        width: f.px-to-rem(1280);
+        margin-inline: auto;
+    }
+}
+
+.section-padding {
+    padding-block: clamp($size-m, 6.5vw, $size-2xl)
+}
+
+.component-gap {
+    gap: clamp($size-s, 4vw, $size-l + $size-xxs)
+}
+
+.section-padding {
+    padding-block: clamp($size-m, 6.5vw, $size-2xl)
+}
+
+.component-gap {
+    gap: clamp($size-s, 4vw, $size-l + $size-xxs)
+}

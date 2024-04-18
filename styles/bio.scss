@@ -1,0 +1,117 @@
+@use "partials" as p;
+
+.hero {
+    background: url('../../assets/images/hero-bio.jpg');
+    width: 100%;
+    height: p.px-to-rem(185);
+    background-size: cover;
+
+    @include p.breakpoint(tablet) {
+        height: p.px-to-rem(435);
+    }
+
+    &__overlay {
+        width: 100%;
+        height: 100%;
+        background-color: p.$text-color--dark-50op;
+        display: flex;
+        align-items: center;
+
+        @include p.breakpoint(tablet) {
+            flex-direction: row;
+        }
+    }
+
+    &__container {
+        @include p.section-layout;
+    }
+
+    &__heading {
+        color: p.$text-color--light;
+    }
+}
+
+.about {
+    @include p.section-layout;
+    @extend .component-gap;
+    @extend .section-padding;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-s;
+        padding: 0;
+
+        @include p.breakpoint(tablet) {
+            padding-inline: p.$size-2xl;
+            gap: p.$size-m;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        object-fit: cover;
+        max-height: p.px-to-rem(150);
+
+        @include p.breakpoint(tablet) {
+            max-height: p.px-to-rem(300);
+        }
+
+        @include p.breakpoint(desktop) {
+            max-height: p.px-to-rem(450);
+        }
+    }
+
+    &__caption {
+        @extend .subheader;
+        padding-bottom: p.$size-xs;
+    }
+
+    &__caption:nth-last-of-type(1) {
+        font-size: p.$font-m;
+    }
+
+    &__copy-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: p.$size-s;
+
+        @include p.breakpoint(tablet) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+.gallery {
+    background-color: p.$secondary-color--light;
+    
+    &__container {
+        @include p.section-layout;
+        @extend .component-gap;
+        @extend .section-padding;
+    }
+
+    &__img-list {
+        display: grid;
+        grid-template-columns: auto;
+        gap: p.$size-m;
+        
+        @include p.breakpoint(tablet) {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: p.$size-m;
+        }
+    }
+
+    &__img {
+        object-fit: cover;
+        width: 100%;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: revert;
+            cursor: pointer;
+        }
+    }
+}
+
