@@ -2,42 +2,21 @@ import comments from './copy.js';
 
 const commentContainer = document.querySelector('.comments__container');
 
-const commentLength = comments.length;
-let comment;
-let commentDiv;
-let commentImg;
-let commentBody;
-let commentWrapper;
-let commentAuthor;
-let commentDate;
-let commentText;
-
-
+const createElement = (element, classname) => {
+    const variable = document.createElement(element);
+    variable.classList.add(classname);
+    return variable;
+}
 
 comments.forEach(item => {
-    comment = document.createElement('div');
-    comment.classList.add('comment');
-
-    commentDiv = document.createElement('div');
-    commentDiv.classList.add('divider');
-
-    commentImg = document.createElement('div');
-    commentImg.classList.add('comment__img');
-
-    commentBody = document.createElement('div');
-    commentBody.classList.add('comment__body');
-
-    commentWrapper = document.createElement('div');
-    commentWrapper.classList.add('comment__wrapper');
-
-    commentAuthor = document.createElement('p');
-    commentAuthor.classList.add('comment__author');
-
-    commentDate = document.createElement('p');
-    commentDate.classList.add('comment__date');
-
-    commentText = document.createElement('p');
-    commentText.classList.add('comment__text');
+    const comment = createElement ("div", "comment");
+    const commentDiv = createElement ("div", "divider");
+    const commentImg = createElement ("div", "comment__img");
+    const commentBody = createElement ("div", "comment__body");
+    const commentWrapper = createElement ("div", "comment__wrapper");
+    const commentAuthor = createElement ("p", "comment__author");
+    const commentDate = createElement ("p", "comment__date");
+    const commentText = createElement ("p", "comment__text");
 
     commentContainer.append(comment, commentDiv);
     comment.append(commentImg, commentBody);
@@ -48,3 +27,5 @@ comments.forEach(item => {
     commentText.innerText = item.text;
     commentDate.innerText = item.date;
 });
+ 
+
