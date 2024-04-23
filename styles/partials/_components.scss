@@ -4,7 +4,7 @@
 @use 'breakpoints' as b;
 @use 'layouts';
 
-.primary-button {
+@mixin primary-button {
     background-color: colors.$text-color--dark;
     color: colors.$text-color--light;
     height: f.px-to-rem(40);
@@ -12,14 +12,14 @@
     width: 100%;
     border: none;
     text-transform: uppercase;
-    @extend .labels-buttons;
+    @extend .body-copy;
 
     &:hover {
         background-color: colors.$secondary-color--dark;
     }
 
     @include b.breakpoint(tablet) {
-        max-width: f.px-to-rem(150);
+        width: f.px-to-rem(150);
         padding-left: layouts.$size-l;
         padding-right: layouts.$size-l;
     }
@@ -116,8 +116,8 @@
     &__content {
         display: flex;
         flex-direction: column;
-        @extend .section-padding;
-        @extend .component-gap;
+        @include layouts.section-padding;
+        @include layouts.component-gap;
     }
 
     &__icon-wrapper {
@@ -186,5 +186,10 @@
     &__subheader {
         font-weight: fonts.$font-demi;
     }
+}
 
+.divider {
+    width: min(100%, f.px-to-rem(500));
+    height: 1px;
+    background-color: colors.$secondary-color--grey;
 }

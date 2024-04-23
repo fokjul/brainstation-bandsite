@@ -33,14 +33,17 @@
 
 .about {
     @include p.section-layout;
-    @extend .component-gap;
-    @extend .section-padding;
+    @include p.component-gap;
+    @include p.section-padding;
 
     &__container {
         display: flex;
         flex-direction: column;
+        align-self: center;
         gap: p.$size-s;
         padding: 0;
+
+        max-width: p.px-to-rem(1000);
 
         @include p.breakpoint(tablet) {
             padding-inline: p.$size-2xl;
@@ -87,8 +90,8 @@
     
     &__container {
         @include p.section-layout;
-        @extend .component-gap;
-        @extend .section-padding;
+        @include p.component-gap;
+        @include p.section-padding;
     }
 
     &__img-list {
@@ -114,4 +117,112 @@
         }
     }
 }
+
+.comments {
+    @include p.section-layout;
+    @include p.component-gap;
+    @include p.section-padding;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: p.$size-s;
+        padding: 0;
+
+        align-items: center;
+
+        @include p.breakpoint(tablet) {
+            padding-inline: p.$size-2xl;
+            gap: p.$size-m;
+        }
+    }
+
+    .form {
+        display: grid;
+        grid-template-columns: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(48)) auto;
+        grid-template-rows: auto;
+        width: min(100%, p.px-to-rem(500));
+        flex: 1;
+        gap: p.$size-s;
+        align-items: flex-end;
+
+        &__img {
+            width: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(48));
+            height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(48));
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        &__input {
+            display: flex;
+            flex-direction: column;
+            gap: p.$size-xxs;
+            width: 100%;
+
+            &-label {
+                @extend .labels-buttons;
+                font-weight: p.$font-demi;
+                color: p.$text-color--grey;
+                text-transform: uppercase;
+            }
+
+            &-element {
+                border-radius: 4px;
+                border: 1px solid p.$secondary-color--grey;
+                padding: 0 clamp(p.$size-xs + p.$size-xxs, 3vw, p.$size-s);
+                color: p.$text-color--dark;
+                font-family: inherit;
+                background-color: p.$secondary-color--light;
+
+                &:is(input) {
+                    height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(48));
+                }
+
+                &:is(textarea) {
+                    height: p.px-to-rem(120);
+                    padding-block: clamp(p.$size-xs + p.$size-xxs, 3vw, p.$size-s);
+                }
+            }
+        }
+
+        &__button {
+            @include p.primary-button;
+        }
+
+        &__grid-container {
+            grid-column-start: 2;
+            display: flex;
+            flex-direction: column;
+            gap: p.$size-s;
+            align-items: flex-end;
+        }
+    }
+
+    .comment {
+        display: flex;
+        width: min(100%, p.px-to-rem(500));
+        gap: p.$size-s;
+        
+
+        &__img {
+            @extend .form__img;
+            background-color: p.$secondary-color--grey;
+            flex-shrink: 0;
+        }
+
+        &__body {}
+
+        &__wrapper {}
+
+        &__author {}
+
+        &__date {}
+
+        &__text {}
+    }
+
+
+}
+
+
 

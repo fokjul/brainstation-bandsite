@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bio.css" type="text/css" rel="stylesheet">
-    <title>Document</title>
+    <script src="scripts/index-page.js" type="module" defer></script>
+    <title>Bio</title>
 </head>
 <body>
     <header class="header">
@@ -65,6 +66,28 @@
                     <img src="/assets/images/Photo-gallery-8.jpg" alt="image 8" class="gallery__img">
                     <img src="/assets/images/Photo-gallery-9.jpg" alt="image 9" class="gallery__img">
                 </div>
+            </div>
+        </section>
+        <section class="comments">
+            <h2 class="section-header">
+                Join the Conversation
+            </h2>
+            <div class="comments__container">
+                <form class="form">
+                    <img src="assets/images/Mohan-muruge.jpg" alt="user photo" class="form__img">
+                    <div class="form__input">
+                        <label for="userName" class="form__input-label">Name</label>
+                        <input type="text" id="userName" name="userName" class="form__input-element">
+                    </div>
+                    <div class="form__grid-container"> 
+                        <div class="form__input">
+                            <label for="userComment" class="form__input-label">Comment</label>
+                            <textarea id="userComment" name="userComment" class="form__input-element">Add a new comment</textarea>
+                        </div>
+                        <input type="submit" value="Comment" class="form__button">
+                    </div>
+                </form>
+                <div class="divider"></div>
             </div>
         </section>
         <footer class="footer">

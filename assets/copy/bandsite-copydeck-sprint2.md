@@ -21,8 +21,41 @@ From there, the band has soared, gaining international recognition and ranking i
 #### Photo Gallery
 
 
-#### Get In Touch
+#### Join the Conversation
 
+
+##### Name
+
+_Enter your name_
+
+
+##### Comment
+
+_Add a new comment_
+
+
+##### Victor Pinto
+
+11/02/2023
+
+This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.
+
+
+##### Christina Cabrera
+
+10/28/2023
+
+I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.
+
+
+##### Isaac Tadesse
+
+10/20/2023
+
+I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.
+
+
+#### Get In Touch
 
 ##### The Bees Knees Management
 
@@ -51,4 +84,60 @@ UK / EU / AU
 bookings@archentertainment.com
 
 
-###### Copyright The Bees Knees © 2023 All Rights Reserved
+## 
+
+
+## Shows
+
+
+### Beautiful Beasts Album \
+Stripes of Yellow x For The Stings
+
+
+#### Dates \
+Venue \
+Location
+
+Mon Sept 09 2024
+
+Ronald Lane 
+
+San Francisco, CA
+
+
+Tue Sept 17 2024 
+
+Pier 3 East 
+
+San Francisco, CA 
+
+
+Sat Oct 12 2024 
+
+View Lounge 
+
+San Francisco, CA 
+
+
+Sat Nov 16 2024 
+
+Hyatt Agency 
+
+San Francisco, CA 
+
+
+Fri Nov 29 2024
+
+Moscow Center 
+
+San Francisco, CA 
+
+
+Wed Dec 18 2024 
+
+Press Club 
+
+San Francisco, CA
+
+
+Buy Tickets
