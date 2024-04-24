@@ -70,16 +70,6 @@ comments.forEach(item => {
     commentText.innerText = item.text;
     commentDate.innerText = item.date;
 });
- 
-
-// const comment = createElement ("div", "comment");
-    // const commentDiv = createElement ("div", "divider");
-    // const commentImg = createElement ("div", "comment__img");
-    // const commentBody = createElement ("div", "comment__body");
-    // const commentWrapper = createElement ("div", "comment__wrapper");
-    // const commentAuthor = createElement ("p", "comment__author");
-    // const commentDate = createElement ("p", "comment__date");
-    // const commentText = createElement ("p", "comment__text");
 
 
 const userName = document.getElementById('userName');
@@ -87,21 +77,36 @@ const userComment = document.getElementById('userComment');
 const commentForm = document.getElementById('commentForm');
 
 
-const addNewComment =() => {
+const addNewComment =(callback) => {
     commentForm.addEventListener('submit', (e)=> {
         const currentDate = Math.floor(Date.now() / 1000);
         e.preventDefault();
         const newComment = {author: userName.value, date: currentDate, text: userComment.value};
-        debugger;
-        console.log(newComment);
-        
-        console.log(comments);
+        comments.push(newComment);
+        if (callback) {
+            callback(comments);
+        }
         return comments;
     })
 }
 
 
+const commentsUpdated = () => {
+    console.log(comments);
+    comments.forEach(item => {
+        const commentElements = createComment();
+        const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText] = commentElements;
+        
+        commentContainer.append(comment, commentDiv);
+        comment.append(commentImg, commentBody);
+        commentBody.append(commentWrapper, commentText);
+        commentWrapper.append(commentAuthor, commentDate);
+        
+        commentAuthor.innerText = item.author;
+        commentText.innerText = item.text;
+        commentDate.innerText = item.date;
+    });
+}
 
-comments.push(addNewComment());
 
-console.log(addNewComment());
+addNewComment(commentsUpdated)
