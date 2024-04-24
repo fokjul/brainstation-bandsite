@@ -73,7 +73,7 @@
                 Join the Conversation
             </h2>
             <div class="comments__container">
-                <form class="form">
+                <form class="form" id="commentForm">
                     <img src="assets/images/Mohan-muruge.jpg" alt="user photo" class="form__img">
                     <div class="form__input">
                         <label for="userName" class="form__input-label">Name</label>
@@ -82,9 +82,9 @@
                     <div class="form__grid-container"> 
                         <div class="form__input">
                             <label for="userComment" class="form__input-label">Comment</label>
-                            <textarea id="userComment" name="userComment" class="form__input-element">Add a new comment</textarea>
+                            <textarea id="userComment" name="userComment" class="form__input-element" placeholder="Add a new comment"></textarea>
                         </div>
-                        <input type="submit" value="Comment" class="form__button">
+                        <input type="submit" value="Comment" class="form__button" id="addComment">
                     </div>
                 </form>
                 <div class="divider"></div>
