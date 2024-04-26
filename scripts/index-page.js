@@ -92,7 +92,6 @@ const addNewComment =(callback) => {
 
 
 const commentsUpdated = () => {
-    console.log(comments);
     comments.forEach(item => {
         const commentElements = createComment();
         const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText] = commentElements;
