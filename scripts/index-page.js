@@ -1,12 +1,6 @@
-import comments from './copy.js'; 
+import {comments} from './copy.js'; 
 
 const commentContainer = document.querySelector('.comments__container');
-
-const createElement = (element, classname) => {
-    const elementHTML = document.createElement(element);
-    elementHTML.classList.add(classname);
-    return elementHTML;
-}
 
 const commentBlock = [
     {
@@ -51,14 +45,25 @@ const commentBlock = [
     },
 ]
 
+//Function to create a new element for each object in an array of objects
+const createElement = (element, classname) => {
+    const elementHTML = document.createElement(element);
+    elementHTML.classList.add(classname);
+    return elementHTML;
+}
+
+//Function to create a new comment for each object in commentBlock Array
 const createComment = () => {
     return commentBlock.map(item => {
         return createElement(item.tagHTML, item.classCSS);
     })
 }
 
+//Display initial comments from comments array of objects
 comments.forEach(item => {
     const commentElements = createComment();
+
+    //destructuring assignment of an array elemenets
     const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText] = commentElements;
     
     commentContainer.append(comment, commentDiv);
@@ -71,40 +76,41 @@ comments.forEach(item => {
     commentDate.innerText = item.date;
 });
 
-
+//Access form fields
 const userName = document.getElementById('userName');
 const userComment = document.getElementById('userComment');
 const commentForm = document.getElementById('commentForm');
 
 
+//Function to add event listener on form submit and display newly added comment ()
 const addNewComment =(callback) => {
     commentForm.addEventListener('submit', (e)=> {
-        const currentDate = Math.floor(Date.now() / 1000);
+        //get posted date in format dd/mm/yyyy
+        const currentDate = new Date().toLocaleDateString('en-GB');
         e.preventDefault();
         const newComment = {author: userName.value, date: currentDate, text: userComment.value};
+
+        //push new comment to comments Array
         comments.push(newComment);
         if (callback) {
-            callback(comments);
+            callback(newComment);
         }
-        return comments;
+        return newComment;
     })
 }
 
-
-const commentsUpdated = () => {
-    comments.forEach(item => {
-        const commentElements = createComment();
+//callback function
+const commentsUpdated = (newComment) => {
+    const commentElements = createComment();
         const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText] = commentElements;
-        
         commentContainer.append(comment, commentDiv);
         comment.append(commentImg, commentBody);
         commentBody.append(commentWrapper, commentText);
         commentWrapper.append(commentAuthor, commentDate);
         
-        commentAuthor.innerText = item.author;
-        commentText.innerText = item.text;
-        commentDate.innerText = item.date;
-    });
+        commentAuthor.innerText = newComment.author;
+        commentText.innerText = newComment.text;
+        commentDate.innerText = newComment.date;
 }
 
 

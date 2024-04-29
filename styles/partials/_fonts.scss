@@ -45,8 +45,8 @@
     $lineH-xxs: f.px-to-rem(18);
 
 .heading1 {
-    font-size: clamp($font-l, 5vw, $font-2xl);
-    line-height: clamp($lineH-m, 6vw, $lineH-xl);
+    font-size: clamp($font-l, 8vw, $font-2xl);
+    line-height: clamp($lineH-m, 9vw, $lineH-xl);
     font-weight: $font-demi;
 }
 

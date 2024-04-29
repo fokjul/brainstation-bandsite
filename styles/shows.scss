@@ -1,1 +1,184 @@
 @use "partials" as p;
+
+.hero {
+    background: url('../../assets/images/hero-shows.jpg');
+    background-position: 75% 25%;
+    width: 100%;
+    background-size: 100%;
+    display: flex;
+    align-items: stretch;
+
+    @include p.breakpoint(tablet) {
+        min-height: p.px-to-rem(478);
+    }
+
+    &__overlay {
+        width: 100%;
+        background-color: p.$text-color--dark-50op;
+        display: flex;
+        align-items: center;
+
+        @include p.breakpoint(tablet) {
+            flex-direction: row;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: auto;
+        margin-inline: p.$size-m;
+        margin-block: p.$size-xl;
+        row-gap: p.$size-s;
+        
+    
+        @include p.breakpoint(tablet) {
+            margin-inline: p.$size-l + p.$size-xxs;
+            margin-block: p.$size-3xl;   
+        }
+
+        @include p.breakpoint(desktop) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            justify-content: space-between;
+            width: p.px-to-rem(1208);
+            margin-inline: auto;
+            margin-block: p.$size-3xl * 4;
+        }
+    }
+
+    h3:is(.hero__heading) {
+        font-weight: p.$font-reg;
+
+        @include p.breakpoint(tablet) {
+            font-weight: p.$font-demi;
+        }
+
+        @include p.breakpoint(desktop) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+
+    &__heading {
+        color: p.$text-color--light;
+    }
+
+    &__iframe {
+        width: min(100%, p.px-to-rem(400));
+        height: p.px-to-rem(150);
+
+        @include p.breakpoint(desktop) {
+            justify-self: flex-end;
+        }
+    }
+
+    h1:is(.hero__heading) {
+        @include p.breakpoint(tablet) {
+            width: p.px-to-rem(550);
+        }
+
+        @include p.breakpoint(desktop) {
+            width: p.px-to-rem(500);
+        }
+    }
+}
+
+.shows {
+    @include p.section-layout;
+    @include p.component-gap;
+    @include p.section-padding;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        row-gap: p.$size-m; 
+    
+        @include p.breakpoint(desktop) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: p.$size-4xl;
+        }
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__button {
+        @include p.primary-button;
+        padding-inline: p.$size-s;
+
+        @include p.breakpoint(tablet) {
+            padding-inline: p.$size-s;
+        }
+    }
+
+
+
+    &__grid {
+        display: none;
+
+        @include p.breakpoint(tablet) {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            width: min(100%, p.px-to-rem(768-72));
+        }
+
+        &-label-container {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            vertical-align: center;
+            padding-block: p.$size-xs;
+            padding-inline: p.$size-s;
+        }
+
+        &-row {
+            @extend .shows__grid-label-container;
+            border-bottom: 1px solid p.$secondary-color--grey;
+            padding-block: p.$size-s;
+        }
+
+        &-row:hover {
+            background-color: p.$secondary-color--light;
+        }
+
+        &-row:active {
+            background-color: p.$secondary-color--grey;
+        }
+
+        .shows__grid-label--venue, .shows__grid-label--location, .shows__grid-label--date {
+            @extend .labels-buttons;
+            color: p.$text-color--grey;
+            text-transform: uppercase;
+            font-weight: p.$font-demi;
+        }
+    }
+
+    &__grid--mobile {
+    
+        .shows__grid-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            width: 100%;
+            row-gap: p.$size-s;
+            padding-inline: 0;
+        }
+
+        .shows__grid-label--venue, .shows__grid-label--location, .shows__grid-label--date {
+            @extend .labels-buttons;
+            color: p.$text-color--grey;
+            text-transform: uppercase;
+            font-weight: p.$font-demi;
+        }
+
+        @include p.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+}

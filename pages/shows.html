@@ -3,11 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/shows.css" type="text/css" rel="stylesheet">
-    <script src="scripts/build-shows-page.js" defer></script>
+    <link href="/css/shows.css" type="text/css" rel="stylesheet">
+    <script type="module" src="/scripts/build-shows-page.js" defer></script>
     <title>Shows</title>
 </head>
 <body>
-    
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="header__container">
+                <div class="header__logo">
+                    <img src="/assets/logo/Logo-bandsite.svg" alt="site logo" class="logo">
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="../index.html" class="nav__link">Biography</a></li>
+                        <li class="nav__item--active">Shows</li>
+                    </ul> 
+                </nav>
+            </div>
+        </div>
+        
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero__overlay">
+                <div class="hero__container">
+                    <h3 class="subheader hero__heading">
+                        Beautiful Beasts Album
+                    </h3>
+                    <h1 class="heading1 hero__heading">Stripes of Yellow x For The Stings</h1>
+                    <div class="hero__iframe">
+                        <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1776106824&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="shows">
+            <div class="shows__container">
+                <h2 class="section-header">
+                    Shows
+                </h2>
+                <div class="shows__grid">
+                    <div class="shows__grid-label-container">
+                        <p class="shows__grid-label--date">date</p>
+                        <p class="shows__grid-label--venue">venue</p>
+                        <p class="shows__grid-label--location">location</p>
+                        <p></p>
+                    </div>
+                    
+                </div>
+                <div class="shows__grid--mobile">
+                    
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer__wrapper">
+                <div class="footer__content">
+                    <div class="footer__container-h2-social-logo">
+                        <div class="footer__container-h2-social">
+                            <h2 class="section-header">
+                                Get In Touch
+                            </h2>
+                            <div class="footer__icon-wrapper">
+                                <img src="/assets/icons/SVG/Icon-instagram.svg" alt="instagram icon" class="footer__icon">
+                                <img src="/assets/icons/SVG/Icon-facebook.svg" alt="facebook icon" class="footer__icon">
+                                <img src="/assets/icons/SVG/Icon-twitter.svg" alt="twitter icon" class="footer__icon">
+                            </div>
+                        </div>
+                        <img src="/assets/logo/Logo-bandsite.svg" alt="site logo" class="logo footer__logo--top">
+                    </div>
+
+                    <div class="footer__section-container">
+                        <section class="footer__section">
+                            <h3 class="footer-copy footer__subheader">The Bees Knees Management</h3>
+                            <p class="footer-copy">503 Broadway Penthouse, <br> New York, NY 10012, USA </p>
+                            <a href="mailto:info@thebeesknees.com" class="email footer-copy">info@thebeesknees.com</a>
+                        </section>
+            
+                        <section class="footer__section">
+                            <h3 class="footer-copy footer__subheader">Limitless Artist Group</h3>
+                            <p class="footer-copy">Booking Agent for <br> US / South America / Japan </p>
+                            <a href="mailto:bookings@limitlessag.com" class="email footer-copy">bookings@limitlessag.com</a>
+                        </section>
+            
+                        <section class="footer__section">
+                            <h3 class="footer-copy footer__subheader">ARCH Entertainment</h3>
+                            <p class="footer-copy">Booking Agent for <br> UK / EU / AU </p>
+                            <a href="mailto:bookings@archentertainment.com" class="email footer-copy">bookings@archentertainment.com</a>
+                        </section>
+                    </div>
+
+                    <section class="footer__section">
+                        <img src="/assets/logo/Logo-bandsite.svg" alt="site logo" class="logo footer__logo--bottom">
+                        <p class="labels-buttons footer__copyright">Copyright The Bees Knees © 2023 All Rights Reserved</p>
+                    </section>
+                </div>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>

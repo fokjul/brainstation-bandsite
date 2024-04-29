@@ -18,7 +18,7 @@
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__item--active">Biography</li>
-                        <li class="nav__item">Shows</li>
+                        <li class="nav__item"><a href="/pages/shows.html" class="nav__link">Shows</a></li>
                     </ul> 
                 </nav>
             </div>
@@ -73,7 +73,7 @@
                 Join the Conversation
             </h2>
             <div class="comments__container">
-                <form class="form" id="commentForm">
+                <form class="form" id="commentForm" name="commentForm">
                     <img src="assets/images/Mohan-muruge.jpg" alt="user photo" class="form__img">
                     <div class="form__input">
                         <label for="userName" class="form__input-label">Name</label>
@@ -84,7 +84,7 @@
                             <label for="userComment" class="form__input-label">Comment</label>
                             <textarea id="userComment" name="userComment" class="form__input-element" placeholder="Add a new comment"></textarea>
                         </div>
-                        <input type="submit" value="Comment" class="form__button" id="addComment">
+                        <button class="form__button" id="addComment">Comment</button>
                     </div>
                 </form>
                 <div class="divider"></div>
