@@ -115,7 +115,9 @@
         }
     }
 
-
+    &__grid-value--date {
+        font-weight: p.$font-demi;
+    }
 
     &__grid {
         display: none;
@@ -146,7 +148,7 @@
             background-color: p.$secondary-color--light;
         }
 
-        &-row:active {
+        &-row--selected {
             background-color: p.$secondary-color--grey;
         }
 
@@ -156,6 +158,8 @@
             text-transform: uppercase;
             font-weight: p.$font-demi;
         }
+
+
     }
 
     &__grid--mobile {
@@ -179,6 +183,7 @@
         @include p.breakpoint(tablet) {
             display: none;
         }
+
     }
 
 }

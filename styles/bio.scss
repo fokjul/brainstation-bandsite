@@ -159,6 +159,8 @@
             gap: p.$size-xxs;
             width: 100%;
 
+
+
             &-label {
                 @extend .labels-buttons;
                 font-weight: p.$font-demi;
@@ -167,12 +169,19 @@
             }
 
             &-element {
+                //reset default input styles
+                outline: none;
+
                 border-radius: 4px;
                 border: 1px solid p.$secondary-color--grey;
                 padding: 0 clamp(p.$size-xs + p.$size-xxs, 3vw, p.$size-s);
                 color: p.$text-color--dark;
                 font-family: inherit;
                 background-color: p.$secondary-color--light;
+
+                &:focus {
+                    border: 1px solid p.$text-color--dark
+                }
 
                 &:is(input) {
                     height: clamp(p.px-to-rem(36), 7vw, p.px-to-rem(48));
@@ -182,6 +191,10 @@
                     height: p.px-to-rem(120);
                     padding-block: clamp(p.$size-xs + p.$size-xxs, 3vw, p.$size-s);
                 }
+            }
+
+            &-error {
+                border: 1px solid p.$error-color;
             }
         }
 
@@ -203,22 +216,38 @@
         width: min(100%, p.px-to-rem(500));
         gap: p.$size-s;
         
-
         &__img {
             @extend .form__img;
             background-color: p.$secondary-color--grey;
             flex-shrink: 0;
         }
 
-        &__body {}
+        &__body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: p.$size-xs;
+        }
 
-        &__wrapper {}
+        &__wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
 
-        &__author {}
+        &__author {
+            @extend .body-copy;
+            font-weight: p.$font-demi;
+        }
 
-        &__date {}
+        &__date {
+            @extend .body-copy;
+            color: p.$text-color--grey;
+        }
 
-        &__text {}
+        &__text {
+            @extend .body-copy;
+        }
     }
 
 

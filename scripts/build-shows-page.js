@@ -2,10 +2,11 @@ import {shows} from './copy.js';
 const showsGrid = document.querySelector('.shows__grid');
 const showsGridMobile = document.querySelector('.shows__grid--mobile');
 
-const createElement = (elementHTML, classCSS, rowNumber = "0") => {
-    const newElement = document.createElement(elementHTML);
+//Function that creates a new element with CSS class and Data attribute
+const createElement = (tagHTML, classCSS, dataAttribute = "0") => {
+    const newElement = document.createElement(tagHTML);
     newElement.classList.add(classCSS);
-    newElement.setAttribute('data-row', rowNumber);
+    newElement.setAttribute('data-row', dataAttribute);
     return newElement;
 }
 
@@ -92,7 +93,6 @@ const createShowGridMob = () => {
                                 showsGridRow.append(showsGridCellContainer);
                                 }
                             }
-    
                         } 
                     })
                 })
@@ -115,3 +115,29 @@ const createShowGridMob = () => {
 }
 
 createShowGridMob()
+
+const gridRows = document.querySelectorAll('.shows__grid-row');
+const classRowSelected = ('shows__grid-row--selected');
+
+let selectedRow = '';
+gridRows.forEach((row, index) => {
+    row.addEventListener('click', (e) => {
+        selectedRow = index;
+        row.classList.add(classRowSelected);
+
+        //callback function
+        if(deselectPrevSelectedRow) {
+            deselectPrevSelectedRow(selectedRow)
+        }
+    })
+})
+
+const deselectPrevSelectedRow = (param) => {
+    gridRows.forEach((row, index) => {
+        
+        //Checking if row index !== selected row index and if the row already has class 'shows__grid-row--selected', the class is removed from the row
+        if (index !== param && row.classList.contains(classRowSelected)) {
+            row.classList.remove(classRowSelected);
+        }
+    })
+}

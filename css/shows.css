@@ -401,6 +401,9 @@ a, a:visited, a:active {
     padding-inline: 1rem;
   }
 }
+.shows__grid-value--date {
+  font-weight: 600;
+}
 .shows__grid {
   display: none;
 }
@@ -427,7 +430,7 @@ a, a:visited, a:active {
 .shows__grid-row:hover {
   background-color: rgb(250, 250, 250);
 }
-.shows__grid-row:active {
+.shows__grid-row--selected {
   background-color: rgb(225, 225, 225);
 }
 .shows__grid .shows__grid-label--venue, .shows__grid .shows__grid-label--location, .shows__grid .shows__grid-label--date {

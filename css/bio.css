@@ -31,7 +31,7 @@
   font-weight: 600;
 }
 
-.body-copy, .comments .form__button, .header .nav__item, .header .nav__link, .header .nav__item--active, .header .nav__item:hover {
+.body-copy, .comments .form__button, .comments .comment__author, .comments .comment__date, .comments .comment__text, .header .nav__item, .header .nav__link, .header .nav__item--active, .header .nav__item:hover {
   font-size: clamp(0.8125rem, 5vw, 0.875rem);
   line-height: clamp(1.125rem, 6vw, 1.375rem);
   font-weight: 400;
@@ -466,6 +466,7 @@ a, a:visited, a:active {
   text-transform: uppercase;
 }
 .comments .form__input-element {
+  outline: none;
   border-radius: 4px;
   border: 1px solid rgb(225, 225, 225);
   padding: 0 clamp(0.75rem, 3vw, 1rem);
@@ -473,12 +474,18 @@ a, a:visited, a:active {
   font-family: inherit;
   background-color: rgb(250, 250, 250);
 }
+.comments .form__input-element:focus {
+  border: 1px solid rgb(50, 50, 50);
+}
 .comments .form__input-element:is(input) {
   height: clamp(2.25rem, 7vw, 3rem);
 }
 .comments .form__input-element:is(textarea) {
   height: 7.5rem;
   padding-block: clamp(0.75rem, 3vw, 1rem);
+}
+.comments .form__input-error {
+  border: 1px solid rgb(210, 45, 45);
 }
 .comments .form__button {
   background-color: rgb(50, 50, 50);
@@ -513,4 +520,21 @@ a, a:visited, a:active {
 .comments .comment__img {
   background-color: rgb(225, 225, 225);
   flex-shrink: 0;
+}
+.comments .comment__body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.comments .comment__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.comments .comment__author {
+  font-weight: 600;
+}
+.comments .comment__date {
+  color: rgb(175, 175, 175);
 }
