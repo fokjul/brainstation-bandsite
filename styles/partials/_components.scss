@@ -167,12 +167,13 @@
     }
 
     &__section-container {
-        display: grid;
-        grid-template-columns: auto;
-        gap: layouts.$size-m;
+        display: flex;
+        flex-direction: column;
+        gap: layouts.$size-l;
 
         @include b.breakpoint(tablet) {
-            grid-template-columns: auto auto auto;  
+            flex-direction: row;
+            gap: layouts.$size-3xl;
         }
     }
 

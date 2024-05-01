@@ -42,7 +42,6 @@
         align-self: center;
         gap: p.$size-s;
         padding: 0;
-
         max-width: p.px-to-rem(1000);
 
         @include p.breakpoint(tablet) {
@@ -128,7 +127,6 @@
         flex-direction: column;
         gap: p.$size-s;
         padding: 0;
-
         align-items: center;
 
         @include p.breakpoint(tablet) {

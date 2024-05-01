@@ -231,13 +231,14 @@ a, a:visited, a:active {
   color: inherit;
 }
 .footer__section-container {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 @media (min-width: 48rem) {
   .footer__section-container {
-    grid-template-columns: auto auto auto;
+    flex-direction: row;
+    gap: 4rem;
   }
 }
 .footer__section {
