@@ -86,33 +86,6 @@ const addNewComment =(callback) => {
     commentForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const commentDate = new Date;
-
-        //https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
-        function timeAgo(input) {
-          const date = (input instanceof Date) ? input : new Date(input);
-          const formatter = new Intl.RelativeTimeFormat('en');
-          const ranges = {
-            years: 3600 * 24 * 365,
-            months: 3600 * 24 * 30,
-            weeks: 3600 * 24 * 7,
-            days: 3600 * 24,
-            hours: 3600,
-            minutes: 60,
-            seconds: 1
-          };
-          const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-          for (let key in ranges) {
-            if (ranges[key] < Math.abs(secondsElapsed)) {
-              const delta = secondsElapsed / ranges[key];
-              return formatter.format(Math.round(delta), key);
-            }
-          }
-        }
-
-        const commentDateTimeAgo =  timeAgo(commentDate);
-        console.log(commentDateTimeAgo)
-
         //Validating if required are not empty
         let requiredFields = document.querySelectorAll('.required');
         let isOk = true;
@@ -123,13 +96,13 @@ const addNewComment =(callback) => {
         };
 
         requiredFields.forEach(field => {
-            console.log(field.value)
             if (field.value === '') {
                 isOk = false;
                 field.classList.add('form__input-error');
             } 
             else {
                 field.classList.remove('form__input-error');
+                
                 //get posted date in format dd/mm/yyyy
                 const currentDate = new Date().toLocaleDateString('en-GB');
                 newComment.author = userName.value;
