@@ -42,7 +42,7 @@ const createShowGrid = () => {
             
         //Creating Buy Ticket Button
         const showBtn = createElement('button', 'shows__button');
-        showBtn.innerText = 'but tickets';
+        showBtn.innerText = 'buy tickets';
 
         //Creating Buy Ticket Button and appending Buy Ticket Button to it
         const showBtnContainer = createElement('div', `${showBtn.classList}-container`, index + 1);
@@ -59,8 +59,7 @@ const createShowGrid = () => {
 createShowGrid()
 
 const createShowGridMob = () => {
-    const labelClassList = ['shows__grid-label--venue', 'shows__grid-label--date', 'shows__grid-label--location'];
-    
+    const labelClassList = ['shows__grid-label--venue', 'shows__grid-label--date', 'shows__grid-label--location'];  
     const valueClassList = ['shows__grid-value--venue', 'shows__grid-value--date', 'shows__grid-value--location'];
 
     shows.forEach((show, index) => {
@@ -118,6 +117,7 @@ createShowGridMob()
 
 const gridRows = document.querySelectorAll('.shows__grid-row');
 const classRowSelected = ('shows__grid-row--selected');
+const classRowHovered = ('shows__grid-row--hovered')
 
 let selectedRow = '';
 gridRows.forEach((row, index) => {
@@ -129,6 +129,14 @@ gridRows.forEach((row, index) => {
         if(deselectPrevSelectedRow) {
             deselectPrevSelectedRow(selectedRow)
         }
+    })
+
+    row.addEventListener('mouseover', (e) => {
+        row.classList.add(classRowHovered);
+    })
+
+    row.addEventListener('mouseout', (e) => {
+        row.classList.remove(classRowHovered);
     })
 })
 

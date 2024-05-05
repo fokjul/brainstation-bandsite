@@ -428,7 +428,7 @@ a, a:visited, a:active {
   border-bottom: 1px solid rgb(225, 225, 225);
   padding-block: 1rem;
 }
-.shows__grid-row:hover {
+.shows__grid-row--hovered {
   background-color: rgb(250, 250, 250);
 }
 .shows__grid-row--selected {

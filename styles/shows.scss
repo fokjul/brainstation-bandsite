@@ -144,7 +144,7 @@
             padding-block: p.$size-s;
         }
 
-        &-row:hover {
+        &-row--hovered {
             background-color: p.$secondary-color--light;
         }
 
@@ -158,8 +158,6 @@
             text-transform: uppercase;
             font-weight: p.$font-demi;
         }
-
-
     }
 
     &__grid--mobile {

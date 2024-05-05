@@ -15,7 +15,6 @@ const comments = [
         text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
         date: "10/20/2022",
     },
-    
 ]
 
 const shows = [
