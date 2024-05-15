@@ -1,4 +1,5 @@
 import {comments} from './copy.js'; 
+import BandSiteApi from './band-site-api.js';
 
 const commentContainer = document.querySelector('.comments__container');
 
@@ -168,3 +169,8 @@ const commentsUpdated = (newComment) => {
 }
 
 addNewComment(commentsUpdated)
+
+
+const siteApi = new BandSiteApi("6d214e4c-4b00-4c47-a134-6d78a8c8e62e")
+const siteComments = await siteApi.getCommentList();
+console.log(siteComments)
