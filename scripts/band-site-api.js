@@ -13,8 +13,9 @@ export default class BandSiteApi {
     }
 
     async getCommentList () {
-        const commentsList = await axios.get(`${this.baseUrl}comments/?api_key=${this.apiKey}`)
-        console.log(`${this.baseUrl}comments/?api_key=${this.apiKey}`)
+        const commentsList = await axios.get(`${this.baseUrl}comments/?api_key=${this.apiKey}`);
+        return commentsList;
     }
+        
 }
 
