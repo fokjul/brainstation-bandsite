@@ -13,8 +13,23 @@ export default class BandSiteApi {
     }
 
     async getCommentList () {
-        const commentsList = await axios.get(`${this.baseUrl}comments/?api_key=${this.apiKey}`);
-        return commentsList;
+        const response = await axios.get(`${this.baseUrl}comments/?api_key=${this.apiKey}`);
+        const commentsList = response.data;
+
+        //Sort comments from newest to oldest
+        return commentsList.sort((commentA, commentB) => {
+            return commentB.timestamp - commentA.timestamp
+        })
+    }
+
+    async deleteComment (commentId) {
+        await axios.delete(`${this.baseUrl}comments/${commentId}?api_key=${this.apiKey}`);
+    }
+
+    async likeComment (commentId) {
+        const newComment = await axios.put(
+            `${this.baseUrl}comments/${commentId}/like?api_key=${this.apiKey}`
+        )
     }
         
 }

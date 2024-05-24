@@ -386,6 +386,7 @@ a, a:visited, a:active {
   width: 100%;
   border: none;
   text-transform: uppercase;
+  cursor: pointer;
   padding-inline: 1rem;
 }
 .shows__button:hover {

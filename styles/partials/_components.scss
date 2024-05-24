@@ -13,6 +13,7 @@
     border: none;
     text-transform: uppercase;
     @extend .body-copy;
+    cursor: pointer;
 
     &:hover {
         background-color: colors.$secondary-color--dark;
@@ -21,6 +22,21 @@
     @include b.breakpoint(tablet) {
         width: f.px-to-rem(150);
         padding-inline: layouts.$size-l;
+    }
+}
+
+@mixin secondary-button {
+    background-color: colors.$text-color--light;
+    color: colors.$text-color--dark;
+    border: 1px solid colors.$text-color--dark;
+    height: f.px-to-rem(30);
+    border-radius: f.px-to-rem(4);
+    @extend .body-copy;
+    cursor: pointer;
+
+    &:hover {
+        background-color: colors.$secondary-color--dark;
+        color: colors.$text-color--light;
     }
 }
 
