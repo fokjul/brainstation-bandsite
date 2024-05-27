@@ -1,4 +1,11 @@
-import {shows} from './copy.js'; 
+import BandSiteApi from './band-site-api.js';
+
+//Creating an instance of BandSiteApi class
+const siteApi = new BandSiteApi("6d214e4c-4b00-4c47-a134-6d78a8c8e62e");
+
+const shows = await siteApi.getShows();
+
+//import {shows} from './copy.js'; 
 const showsGrid = document.querySelector('.shows__grid');
 const showsGridMobile = document.querySelector('.shows__grid--mobile');
 
@@ -10,9 +17,14 @@ const createElement = (tagHTML, classCSS, dataAttribute = "0") => {
     return newElement;
 }
 
+function displayShowDate(input) {
+    const commentDate = new Date(input);
+                return commentDate.toDateString();
+}
+
 const createShowGrid = () => {
     
-    const valueClassList = ['shows__grid-value--venue', 'shows__grid-value--date', 'shows__grid-value--location'];
+    const valueClassList = ['shows__grid-value--place', 'shows__grid-value--date', 'shows__grid-value--location'];
 
     shows.forEach((show, index) => {
         let showsGridCellContainer;
@@ -20,13 +32,19 @@ const createShowGrid = () => {
 
         //Creating a grid row
         showsGridRow = createElement('div', 'shows__grid-row', index + 1);
-            for ( const showInfoType in show) {  
+            for ( const showInfoType in show) { 
                 valueClassList.forEach((className) => {
-                    if (className.includes(showInfoType)) {
+                    if (className.includes(showInfoType) && showInfoType !== 'id') {
 
                         //Creating grid cell
                         const showsGridCell = createElement('p', className);
-                        showsGridCell.innerText = show[showInfoType];
+                        if (showInfoType === 'date') {
+                            const date = displayShowDate(show[showInfoType]);
+                            showsGridCell.innerText = date;
+                        } else {
+                            showsGridCell.innerText = show[showInfoType];
+                        }
+                        
 
                         //Creating a grid cell container and apending grid cell to it
                         showsGridCellContainer = createElement('div', `${className}-container`, index + 1);
@@ -59,8 +77,8 @@ const createShowGrid = () => {
 createShowGrid()
 
 const createShowGridMob = () => {
-    const labelClassList = ['shows__grid-label--venue', 'shows__grid-label--date', 'shows__grid-label--location'];  
-    const valueClassList = ['shows__grid-value--venue', 'shows__grid-value--date', 'shows__grid-value--location'];
+    const labelClassList = ['shows__grid-label--place', 'shows__grid-label--date', 'shows__grid-label--location'];  
+    const valueClassList = ['shows__grid-value--place', 'shows__grid-value--date', 'shows__grid-value--location'];
 
     shows.forEach((show, index) => {
         let showsGridCellContainer;
@@ -71,17 +89,23 @@ const createShowGridMob = () => {
             for ( const showInfo in show) {  
                 valueClassList.forEach((valueClassName) => {
                     labelClassList.forEach((labelClassName) => {
-                        if (valueClassName.includes(showInfo)) {
+                        if (valueClassName.includes(showInfo) && (showInfo !== 'id') ) {
 
                             if(labelClassName.includes(showInfo)){
                                 //Creating grid cell
                                 const showGridCell = createElement('p', valueClassName);
-                                showGridCell.innerText = show[showInfo];
+                                
+                                if (showInfo === 'date') {
+                                    const date = displayShowDate(show[showInfo]);
+                                    showGridCell.innerText = date;
+                                } else {
+                                    showGridCell.innerText = show[showInfo];
+                                }
         
                                 //Creating grid cell label
                                 const showGridCellLabel = createElement('p', labelClassName);
                                 showGridCellLabel.innerText = showInfo;
-        
+                                
                                 //Creating a grid cell container and apending grid cell to it
                                 showsGridCellContainer = createElement('div', `${valueClassName}-container`, index + 1);
                                 showsGridCellContainer.append(showGridCellLabel);
@@ -149,3 +173,4 @@ const deselectPrevSelectedRow = (param) => {
         }
     })
 }
+

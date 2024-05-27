@@ -43,7 +43,7 @@
   font-weight: 400;
 }
 
-.labels-buttons, .shows__grid .shows__grid-label--venue, .shows__grid .shows__grid-label--location, .shows__grid .shows__grid-label--date, .shows__grid--mobile .shows__grid-label--venue, .shows__grid--mobile .shows__grid-label--location, .shows__grid--mobile .shows__grid-label--date {
+.labels-buttons, .shows__grid .shows__grid-label--place, .shows__grid .shows__grid-label--location, .shows__grid .shows__grid-label--date, .shows__grid--mobile .shows__grid-label--place, .shows__grid--mobile .shows__grid-label--location, .shows__grid--mobile .shows__grid-label--date {
   font-size: clamp(0.625rem, 5vw, 0.75rem);
   line-height: clamp(1.25rem, 6vw, 1.25rem);
   font-weight: 700;
@@ -435,7 +435,7 @@ a, a:visited, a:active {
 .shows__grid-row--selected {
   background-color: rgb(225, 225, 225);
 }
-.shows__grid .shows__grid-label--venue, .shows__grid .shows__grid-label--location, .shows__grid .shows__grid-label--date {
+.shows__grid .shows__grid-label--place, .shows__grid .shows__grid-label--location, .shows__grid .shows__grid-label--date {
   color: rgb(175, 175, 175);
   text-transform: uppercase;
   font-weight: 600;
@@ -448,7 +448,7 @@ a, a:visited, a:active {
   row-gap: 1rem;
   padding-inline: 0;
 }
-.shows__grid--mobile .shows__grid-label--venue, .shows__grid--mobile .shows__grid-label--location, .shows__grid--mobile .shows__grid-label--date {
+.shows__grid--mobile .shows__grid-label--place, .shows__grid--mobile .shows__grid-label--location, .shows__grid--mobile .shows__grid-label--date {
   color: rgb(175, 175, 175);
   text-transform: uppercase;
   font-weight: 600;

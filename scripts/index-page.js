@@ -5,24 +5,19 @@ import BandSiteApi from './band-site-api.js';
 const siteApi = new BandSiteApi("6d214e4c-4b00-4c47-a134-6d78a8c8e62e");
 
 class ElementInstance {
-    constructor (elementHtmlTag, elementCssClass, variableName, elementText = null) {
+    constructor (elementHtmlTag, elementCssClass, elementText = null) {
         this.elementHtmlTag = elementHtmlTag,
         this.elementCssClass = elementCssClass,
-        this.variableName = variableName,
         this.elementText = elementText
     }
 
-    createElementObject(arrayOfObjects) {
-        let commentObj = {
-            elementHtmlTag: this.elementHtmlTag,
-            elementCssClass: this.elementCssClass,
-            variableName: this.variableName,
-            elementText: this.elementText,
-        }
-        return arrayOfObjects.push(commentObj);
+    //Static method that initiaalizes a new intance
+    static createElement(elementHtmlTag, elementCssClass, elementText) {
+        return new ElementInstance(elementHtmlTag, elementCssClass, elementText)
     }
-
-    createCommentHTMLArr(HTMLArr) {
+    
+    //Creates HTML structure for all comment elements except for buttons
+    createCommentHTML(arr) {
         if(this.elementHtmlTag && this.elementCssClass) {
             const elementHTML = document.createElement(this.elementHtmlTag);
             elementHTML.classList.add(this.elementCssClass);
@@ -31,29 +26,24 @@ class ElementInstance {
                 elementHTML.innerHTML = this.elementText
             }
                  
-            HTMLArr.push(elementHTML);
+            arr.push(elementHTML);
         }
-        return HTMLArr
+        return arr
     }
 }
 
 class ButtonInstance extends ElementInstance {
-    constructor (elementHtmlTag, elementCssClass, variableName, elementText, elementId) {
-        super(elementHtmlTag, elementCssClass, variableName, elementText)
+    constructor (elementHtmlTag, elementCssClass, elementText, elementId) {
+        super(elementHtmlTag, elementCssClass, elementText)
         this.elementId = elementId
     }
 
-    createElementObject (arrayOfObjects) {
-        let buttonObj = {
-            elementHtmlTag: this.elementHtmlTag,
-            elementCssClass: this.elementCssClass,
-            variableName: this.variableName,
-            elementText: this.elementText,
-            elementId: this.elementId
-        }
-        return arrayOfObjects.push(buttonObj);
+    //Static method that initiaalizes a new intance
+    static createButton (elementHtmlTag, elementCssClass, elementText, elementId) {
+        return new ButtonInstance(elementHtmlTag, elementCssClass, elementText, elementId)
     }
 
+    //Creates HTML structure for buttons
     async createButtonHTML (arr) {
         if(this.elementHtmlTag && this.elementCssClass) {
             const elementHTML = document.createElement(this.elementHtmlTag);
@@ -76,81 +66,46 @@ class ButtonInstance extends ElementInstance {
     }
 }
 
-
 const commentElementObj = {
-    createCommentHTMLStructure(element, arr) {
-        const comment = new ElementInstance ('div','comment', 'comment', null);
-        comment.createElementObject(arr)
-        
-        const commentDiv = new ElementInstance ('div','divider', 'commentDiv', null);
-        commentDiv.createElementObject(arr)
-        
-        const commentImg = new ElementInstance ('div','comment__img', 'commentImg', null);
-        commentImg.createElementObject(arr)
-    
-        const commentBody = new ElementInstance ('div','comment__body', 'commentBody', null);
-        commentBody.createElementObject(arr)
-    
-        const commentWrapper = new ElementInstance ('div','comment__wrapper', 'commentWrapper', null);
-        commentWrapper.createElementObject(arr)
-    
-        const commentAuthor = new ElementInstance ('p','comment__author', 'commentAuthor', element.name);
-        commentAuthor.createElementObject(arr)
-    
-        const commentDate = new ElementInstance ('p','comment__date', 'commentDate', timeAgo(element.timestamp));
-        commentDate.createElementObject(arr)
-    
-        const commentText = new ElementInstance ('p','comment__text', 'commentText', element.comment);
-        commentText.createElementObject(arr)
-    
-        const commentBtnContainer = new ElementInstance ('div','comment__btnContainer', 'commentBtnContainer', null);
-        commentBtnContainer.createElementObject(arr)
-    
-        const likeContainer = new ElementInstance ('div','comment__likeContainer', 'likeContainer', null);
-        likeContainer.createElementObject(arr)
-    
-        const commentLikeCounter = new ElementInstance ('p','comment__LikeCounter', 'commentLikeCounter', element.likes);
-        commentLikeCounter.createElementObject(arr)
-    
-        return arr;
-    },
-    
-    createButtonHTMLStructure(element, arr) {
-        const deleteBtn = new ButtonInstance ('button', 'comment__deleteBtn', 'deleteBtn', 'Delete', element.id);
-        deleteBtn.createElementObject(arr)
-        const likeBtn = new ButtonInstance ('button', 'comment__likeBtn', 'likeBtn', 'Like', element.id);
-        likeBtn.createElementObject(arr)
-    
-        return arr
-    },
+    createCommentStructure(element) {
+        const elementArray = [];
+        elementArray.push(
+            ElementInstance.createElement('div','comment', null),
+            ElementInstance.createElement('div','divider', null),
+            ElementInstance.createElement('div','comment__img', null),
+            ElementInstance.createElement('div','comment__body', null),
+            ElementInstance.createElement('div','comment__wrapper', null),
+            ElementInstance.createElement('p','comment__author', element.name),
+            ElementInstance.createElement('p','comment__date', timeAgo(element.timestamp)),
+            ElementInstance.createElement('p','comment__text', element.comment),
+            ElementInstance.createElement('div','comment__btnContainer', null),
+            ElementInstance.createElement('div','comment__likeContainer', null),
+            ElementInstance.createElement('p','comment__LikeCounter', element.likes)
+        )
 
-    createComment(element) {
+        const buttonArray = [];
+        buttonArray.push(
+            ButtonInstance.createButton('button', 'comment__deleteBtn', 'Delete', element.id),
+            ButtonInstance.createButton('button', 'comment__likeBtn', 'Like', element.id)
+        )
+
         const arrayOfTags = [];
-
-        const arrayOfCommentObj = [];
-        const commentHTMLStructure = this.createCommentHTMLStructure(element, arrayOfCommentObj)
-        commentHTMLStructure.forEach(item => {
-            let commentElement = item.variableName;
-            commentElement = new ElementInstance(item.elementHtmlTag, item.elementCssClass, item.variableName, item.elementText)
-            commentElement.createCommentHTMLArr(arrayOfTags)
-        })
-
-        const arrayOfButtonObj = [];
-        const buttonHTMLStructure = this.createButtonHTMLStructure(element, arrayOfButtonObj)
-        buttonHTMLStructure.forEach((item) => {
-            let btnElement = item.variableName;
-            btnElement = new ButtonInstance(item.elementHtmlTag, item.elementCssClass, item.variableName, item.elementText, element.id)
-            btnElement.createButtonHTML(arrayOfTags)
-        })
+        elementArray.forEach(element => {
+            element.createCommentHTML(arrayOfTags)
+        });
+        buttonArray.forEach(button => {
+            button.createButtonHTML(arrayOfTags)
+        });
 
         return arrayOfTags;
     },
-
-    appendComment(element) {
+    
+    //Takes an array of element nodes from createCommentStructure() and appends it to UI
+    appendCommentStrcuture(element) {
         const commentContainer = document.querySelector('.comments__container');
         
         //Destructuring assignment of an array elemenets to create a variable for each element in the array
-        const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText, commentBtnContainer,likeContainer, likeCounter, deleteBtn, likeBtn, ] = this.createComment(element);
+        const [comment, commentDiv, commentImg, commentBody, commentWrapper, commentAuthor, commentDate, commentText, commentBtnContainer,likeContainer, likeCounter, deleteBtn, likeBtn, ] = this.createCommentStructure(element);
     
         commentContainer.append(comment, commentDiv);
         comment.append(commentImg, commentBody);
@@ -214,11 +169,10 @@ const commentListObj = {
         //Connecting to API to display list of comments
         const response = await siteApi.getCommentList();
         response.forEach(comment => {
-            commentElementObj.appendComment(comment);
+            commentElementObj.appendCommentStrcuture(comment);
         });
     },
 }
-
 
 // Function to convert milliseconds info human readable format from https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
 function timeAgo(input) {

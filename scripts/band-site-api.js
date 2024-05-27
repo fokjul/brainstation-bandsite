@@ -31,6 +31,12 @@ export default class BandSiteApi {
             `${this.baseUrl}comments/${commentId}/like?api_key=${this.apiKey}`
         )
     }
+
+    async getShows () {
+        const response = await axios.get(`${this.baseUrl}showdates/?api_key=${this.apiKey}`);
+        const showDates = response.data;
+        return showDates;
+    }
         
 }
 

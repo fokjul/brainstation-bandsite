@@ -152,7 +152,7 @@
             background-color: p.$secondary-color--grey;
         }
 
-        .shows__grid-label--venue, .shows__grid-label--location, .shows__grid-label--date {
+        .shows__grid-label--place, .shows__grid-label--location, .shows__grid-label--date {
             @extend .labels-buttons;
             color: p.$text-color--grey;
             text-transform: uppercase;
@@ -171,7 +171,7 @@
             padding-inline: 0;
         }
 
-        .shows__grid-label--venue, .shows__grid-label--location, .shows__grid-label--date {
+        .shows__grid-label--place, .shows__grid-label--location, .shows__grid-label--date {
             @extend .labels-buttons;
             color: p.$text-color--grey;
             text-transform: uppercase;
