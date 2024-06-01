@@ -163,11 +163,13 @@ const commentListObj = {
     async displayCommentList() {
         const comments = document.querySelectorAll('.comment');
         const dividers = document.querySelectorAll('.divider');
-        comments.forEach(comment => comment.remove());
-        dividers.forEach(divider => divider.remove());
 
         //Connecting to API to display list of comments
         const response = await siteApi.getCommentList();
+
+        //Clear UI after the promise is complete
+        comments.forEach(comment => comment.remove());
+        dividers.forEach(divider => divider.remove());
         response.forEach(comment => {
             commentElementObj.appendCommentStrcuture(comment);
         });
